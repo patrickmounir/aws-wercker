@@ -1,0 +1,2 @@
+# Openshift-Travis-Wercker
+Build and Deploy your applications to [OpenShift](https://www.openshift.com/) using two popular hosted continuous integration services, [Travis CI](https://travis-ci.org/) and [Wercker](http://wercker.com/). This is a simple Node.js application with sample Mocha Unit Tests done during the build process. The working example of the application can be seen at [http://deploy.openshift.botleg.com](http://deploy.openshift.botleg.com).
