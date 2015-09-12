@@ -8,3 +8,22 @@ build:
           echo "npm version $(npm -v) running"
     - npm-install
     - npm-test
+
+deploy:
+  openshift:
+    - add-ssh-key:
+        keyname: OPENSHIFT_SSH_KEY
+        host: deploy-dodge.rhcloud.com
+    - add-to-known_hosts:
+        hostname: deploy-dodge.rhcloud.com
+    - script:
+        name: git setup
+        code: |
+          git config --global user.email $EMAIL_ADDRESS
+          git config --global user.name $USER_NAME
+          git config --global push.default matching
+    - script:
+        name: deploy
+        code: |
+          git push $OPENSHIFT_GIT_URL $OPENSHIFT_BRANCH
+          echo "deployed to http://deploy.openshift.botleg.com/"
