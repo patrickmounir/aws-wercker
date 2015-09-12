@@ -13,9 +13,9 @@ deploy:
   openshift:
     - add-ssh-key:
         keyname: OPENSHIFT_SSH_KEY
-        host: deploy-dodge.rhcloud.com
+        host: $OPENSHIFT_HOST
     - add-to-known_hosts:
-        hostname: deploy-dodge.rhcloud.com
+        hostname: $OPENSHIFT_HOST
     - script:
         name: git setup
         code: |
@@ -26,4 +26,3 @@ deploy:
         name: deploy
         code: |
           git push $OPENSHIFT_GIT_URL $OPENSHIFT_BRANCH
-          echo "deployed to http://deploy.openshift.botleg.com/"
