@@ -1,0 +1,23 @@
+{
+  "name": "openshift-travis-wercker",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "app": "nodemon index.js"
+  },
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/botleg/elasticsearch-jekyll.git"
+  },
+  "jshintConfig": {
+    "esnext": true
+  },
+  "author": "Hanzel Jesheen",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "nodemon": "^1.4.1"
+  }
+}
