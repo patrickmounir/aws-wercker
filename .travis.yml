@@ -1,6 +1,15 @@
 language: node_js
-node_js: 
-  - "4.0.0"
+node_js:
+  - 4.0.0
 install:
   - npm install
 script: npm test
+
+deploy:
+  provider: openshift
+  user: $EMAIL_ADDRESS
+  password:
+    secure: Y9et6C4ELvnvfXWpgUrdA/2suDULDW7SsT9SBG/AoQ2EGlOc0t48b/BJvt4R5coANrOe7trKcWwxJMmD8FJXmpNvWqUlbpbuLH8M8oeNp9dGgU0clfGW3ff00HuGuoH3hycyuysr7AzKbmRjffbirX2/Jh/NyMtLYzh78TNWa9LwculL9I/jmu+z1RLMrYgiZ2uOsG261RyQ8hOzu9LwOfUoFOtS3ozi0ExkxBddCItbfVnyidlpFX3gdBtabqu5Q0NFMiXHVQkMm9xjYqf0DASxVnqGF3MsJbfPpzvBJjdnYU92lUNt/yckkyV3jSrlm2WaqaprRfucC7UXwRrOXpxPatTSKnd5Xm/DnSNLzJCpGU1xJG0HUFihGtXlgF2mYTXu9A4BkrKuC9qA1i3Gt9ENrLpL8uGGvUKlNw19X0QEeTX4QQ2EItA7tACYHWPt0bIn/9TUFJ6FiB0M4K3OGIQltAcWSHbTKvP+AuFEAK9a9dxrF1EK1FtJhFaHJk0HahBB5JjG/aQfxOYEBJbfsAhP4fanwO63GmfzsU2rVq3qbHhQC/Jdr/mobz9rf+DmfkXWT4KfmDSjkI6eUg80Iv2ar7tc3E0McYADLxahwnVP37mO8yuLdS1Za+AaWLFBE3/S8YR8lWVgQCO9T1oklR7ZzD0K4ahdGUMpdQ3VqyY=
+  app: $APP_NAME
+  domain: $DOMAIN_NAME
+  on: master
