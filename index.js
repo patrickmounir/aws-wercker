@@ -1,6 +1,6 @@
 var http = require('http');
 
-const PORT = process.env.OPENSHIFT_NODEJS_PORT || 8000;
+const PORT = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 const IP = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 
 function handleRequest(request, response) {
