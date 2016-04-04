@@ -20,6 +20,8 @@ deploy:
         name: ssh stop
         code: |
           ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $USER@$HOST
+          pwd
+          ls -a
           nvm use 5.9
           pm2 stop index
     - script:
