@@ -12,21 +12,21 @@ build:
 deploy:
    aws:
     - add-ssh-key:
-        keyname: KEY_PRIVATE
+        keyname: $KEY_PRIVATE
         host: $HOST
     - add-to-known_hosts:
         hostname: $HOST
     - script:
-      name: ssh and stop app
-      code: |
-        ssh $USER:$HOST
-        pm2 stop index
+        name: ssh stop
+        code: |
+          ssh $USER:$HOST
+          pm2 stop index
     - script:
-      name: force pull
-      code: |
-        ssh $USER:$HOST
-        rm -rf aws-test
-        git clone $GIT_REPO_URL aws-test
-        cd aws-test
-        npm install
-        pm2 start index.js
+        name: clone start
+        code: |
+          ssh $USER:$HOST
+          rm -rf aws-test
+          git clone $GIT_REPO_URL aws-test
+          cd aws-test
+          npm install
+          pm2 start index.js
