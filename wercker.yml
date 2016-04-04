@@ -12,7 +12,7 @@ build:
 deploy:
    aws:
     - add-ssh-key:
-        keyname: $KEY_PRIVATE
+        keyname: KEY_PRIVATE
         host: $HOST
     - add-to-known_hosts:
         hostname: $HOST
