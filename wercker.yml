@@ -13,8 +13,6 @@ deploy:
    aws:
     - add-to-known_hosts:
         hostname: $HOST
-    - mktemp:
-      envvar: PRIVATEKEY_PATH
     - create-file:
       name: write key
       filename: $PRIVATEKEY_PATH
