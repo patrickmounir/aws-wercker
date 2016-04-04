@@ -19,11 +19,8 @@ deploy:
     - script:
         name: ssh stop
         code: |
-          ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $USER@$HOST pm2 stop index
+          ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $USER@$HOST APP=$APP ./stop_server.sh
     - script:
         name: clone start
         code: |
-          ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $USER@$HOST rm -rf aws-test
-          ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $USER@$HOST git clone $GIT_REPO_URL aws-test
-          ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $USER@$HOST cd aws-test && npm install
-          ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $USER@$HOST cd aws-test && pm2 start index.js
+          ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $USER@$HOST APP=$APP ./start_server.sh
