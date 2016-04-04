@@ -30,4 +30,4 @@ deploy:
         scp -i $PRIVATEKEY_PATH -o StrictHostKeyChecking=no -o UserKnownHostsFile=no aws-test $USER@$HOST:~
     - script:
       name: start application
-      code: ssh -i $PRIVATEKEY_PATH -l root -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $HOST pm2 start ./index.js
+      code: ssh -i $PRIVATEKEY_PATH -l root -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $HOST pm2 start aws-test/index.js
