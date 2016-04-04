@@ -19,11 +19,10 @@ deploy:
     - script:
         name: ssh stop
         code: |
-          ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $USER@$HOST
-          pwd
-          ls -a
-          nvm use 5.9
-          pm2 stop index
+          ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $USER@$HOST pwd
+          ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $USER@$HOST pwd ls -a
+          ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $USER@$HOST pwd nvm use 5.9
+          ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $USER@$HOST pwd pm2 stop index
     - script:
         name: clone start
         code: |
