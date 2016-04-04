@@ -1,7 +1,7 @@
 var http = require('http');
 
-const PORT = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-const IP = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+const PORT = process.env.NODEJS_PORT || 80;
+const IP = process.env.NODEJS_IP || '0.0.0.0';
 
 function handleRequest(request, response) {
 	response.end(`Web server running on Node.js v${process.versions.node} deployed with wercker.`);
