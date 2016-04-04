@@ -20,6 +20,7 @@ deploy:
         name: ssh stop
         code: |
           ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $USER@$HOST
+          nvm use 5.9
           pm2 stop index
     - script:
         name: clone start
@@ -28,5 +29,6 @@ deploy:
           rm -rf aws-test
           git clone $GIT_REPO_URL aws-test
           cd aws-test
+          nvm use 5.9
           npm install
           pm2 start index.js
