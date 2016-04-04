@@ -10,19 +10,26 @@ build:
     - npm-test
 
 deploy:
-  openshift:
-    - add-ssh-key:
-        keyname: OPENSHIFT_SSH_KEY
-        host: $OPENSHIFT_HOST
-    - add-to-known_hosts:
-        hostname: $OPENSHIFT_HOST
-    - script:
-        name: git setup
-        code: |
-          git config --global user.email $EMAIL_ADDRESS
-          git config --global user.name $USER_NAME
-          git config --global push.default matching
-    - script:
-        name: deploy
-        code: |
-          git push $OPENSHIFT_GIT_URL $OPENSHIFT_BRANCH
+  steps:
+  - add-to-known_hosts:
+        hostname: $HOST
+   - mktemp:
+      envvar: PRIVATEKEY_PATH
+   - create-file:
+      name: write key
+      filename: $PRIVATEKEY_PATH
+      content: $KEY_PRIVATE
+      overwrite: true
+      hide-from-log: true
+   - script:
+      name: stop application
+      code: ssh -i $PRIVATEKEY_PATH -l $USER -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $HOST pm2 stop server
+   - script:
+      name: transfer application
+      code: |
+        pwd
+        ls -la
+        scp -i $PRIVATEKEY_PATH -o StrictHostKeyChecking=no -o UserKnownHostsFile=no aws-test $USER@$HOST:~
+   - script:
+      name: start application
+      code: ssh -i $PRIVATEKEY_PATH -l root -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $HOST pm2 start ./index.js
