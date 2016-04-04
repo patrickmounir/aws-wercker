@@ -10,7 +10,7 @@ build:
     - npm-test
 
 deploy:
-  steps:
+  aws:
   - add-to-known_hosts:
         hostname: $HOST
    - mktemp:
