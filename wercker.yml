@@ -11,23 +11,22 @@ build:
 
 deploy:
    aws:
+    - add-ssh-key:
+        keyname: KEY_PRIVATE
+        host: $HOST
     - add-to-known_hosts:
         hostname: $HOST
-    - create-file:
-      name: write key
-      filename: $PRIVATEKEY_PATH
-      content: $KEY_PRIVATE
-      overwrite: true
-      hide-from-log: true
     - script:
-      name: stop application
-      code: ssh -i $PRIVATEKEY_PATH -l $USER -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $HOST pm2 stop server
-    - script:
-      name: transfer application
+      name: ssh and stop app
       code: |
-        pwd
-        ls -la
-        scp -i $PRIVATEKEY_PATH -o StrictHostKeyChecking=no -o UserKnownHostsFile=no aws-test $USER@$HOST:~
+        ssh $USER:$HOST
+        pm2 stop index
     - script:
-      name: start application
-      code: ssh -i $PRIVATEKEY_PATH -l root -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $HOST pm2 start aws-test/index.js
+      name: force pull
+      code: |
+        ssh $USER:$HOST
+        rm -rf aws-test
+        git clone $GIT_REPO_URL aws-test
+        cd aws-test
+        npm install
+        pm2 start index.js
