@@ -1,2 +1,18 @@
-# Openshift-Travis-Wercker
-Build and Deploy your applications to [OpenShift](https://www.openshift.com/) using two popular hosted continuous integration services, [Travis CI](https://travis-ci.org/) and [Wercker](http://wercker.com/). This is a simple Node.js application with sample Mocha Unit Tests done during the build process. The working example of the application can be seen at [http://deploy.openshift.botleg.com](http://deploy.openshift.botleg.com).
+# Wercker aws CI CD example app
+
+Try forking this app on your account and test it with you aws server.
+
+- Setup a wrecker account and have it point to this app
+- create a deployment target called aws (matching the file in the repo)
+- create an ssh key
+- add the ssk key as a variable in your deployment target call it KEY_PRIVATE
+- add you HOST, your USER, the name of your APP as variables as well
+
+- add the public version of your key in your server's authorized_keys file
+
+```
+$ ssh into your server
+$ vi ~/.ssh/authorized_keys
+```
+
+and past the public key under your current key
