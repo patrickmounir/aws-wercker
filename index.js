@@ -5,7 +5,7 @@ const IP = process.env.NODEJS_IP || '0.0.0.0';
 
 
 function handleRequest(request, response) {
-	response.end(`This is done autimatically`);
+	response.end(`This deployment done autimatically`);
 }
 
 var server = http.createServer(handleRequest);
