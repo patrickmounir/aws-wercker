@@ -16,3 +16,8 @@ $ vi ~/.ssh/authorized_keys
 ```
 
 and past the public key under your current key
+
+this app is based off of this tutorial https://botleg.com/stories/build-and-deploy-to-openshift-with-travisci-and-wercker/
+and the digital ocean tutorial by wrecker http://blog.wercker.com/2013/09/03/ContinuousDelivery-with-wercker-digitalocean-and-nodejs.html
+
+use it to figure out the missing information :D
