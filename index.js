@@ -4,7 +4,7 @@ var PORT = process.env.NODEJS_PORT || 80;
 var IP = process.env.NODEJS_IP || '0.0.0.0';
 
 function handleRequest(request, response) {
-	response.end(`This deployment done autimatically`);
+	response.end(`This deployment was done autimatically`);
 }
 
 var server = http.createServer(handleRequest);
