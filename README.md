@@ -83,9 +83,9 @@ Now your setup should be ready
 
 To test this out simple clone this repo and change something in it (say the welcome message) then push it to master
 
-after that checkout the app on wercker
+After that checkout the app on wercker
 
-
+![create_account](./guide_images/building.png)
 
 This repo is based off of this tutorial https://botleg.com/stories/build-and-deploy-to-openshift-with-travisci-and-wercker/
 and the digital ocean tutorial by wrecker http://blog.wercker.com/2013/09/03/ContinuousDelivery-with-wercker-digitalocean-and-nodejs.html
