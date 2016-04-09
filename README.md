@@ -81,7 +81,9 @@ sudo setcap cap_net_bind_service=+ep /usr/local/bin/node
 
 Now your setup should be ready
 
-To test this out simple clone this repo and change something in it (say the welcome message) then push it to master
+- To test this out simply clone this repo
+- and change in it (say change the welcome message)
+- then add commit and push it to master
 
 After that checkout the app on wercker
 
