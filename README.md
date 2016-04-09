@@ -89,7 +89,7 @@ After that checkout the app on wercker
 
 ![build](./guide_images/building.png)
 
-the wercker.yml file is explained back in the [se-tutrial lab](https://github.com/amrdraz/se-tutorial/blob/master/lab-7.md))
+the wercker.yml file is explained back in the [se-tutrial lab](https://github.com/amrdraz/se-tutorial/blob/master/lab-7.md)
 
 This repo is based off of these tutorials
 https://botleg.com/stories/build-and-deploy-to-openshift-with-travisci-and-wercker/
