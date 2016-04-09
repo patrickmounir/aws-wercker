@@ -1,7 +1,7 @@
-# Wercker aws CI CD example app
+# Wercker AWS CI CD example App
 
 
-![wrrcker](./guide_images/wercker.png)
+![wercker](./guide_images/wercker.png)
 
 - Fork this repository
 
@@ -11,9 +11,9 @@
 
 - go to the app settings and create an ssh key
 
-![create_account](./guide_images/create_ssh.png)
+![create ssh](./guide_images/create_ssh.png)
 
-- add your public key in your aws isntanc's authorized_keys file
+- add your public key in your aws instance's authorized_keys file
 
 ```
 $ ssh YOUR_USER@YOUR_SERVER_IP
@@ -24,7 +24,7 @@ past the public key you got from wercker into the next line
 
 - go back to your wercker settings and create a deployment target called aws (doesn't have to be but we will do that)
 
-![create_account](./guide_images/create_target.png)
+![add ssh](./guide_images/create_target.png)
 
 - Add variables into your target
 
@@ -33,11 +33,11 @@ past the public key you got from wercker into the next line
 
 - add the variable your HOST, your USER, your REPO_URL and the name of your APP as variables as well
 
-![create_account](./guide_images/add_variable.png)
+![add variable](./guide_images/add_variable.png)
 
 You should windup with a target that looks something like this
 
-![create_account](./guide_images/variables.png)
+![variables](./guide_images/variables.png)
 
 > __Don't forget to Save__
 
@@ -87,9 +87,12 @@ Now your setup should be ready
 
 After that checkout the app on wercker
 
-![create_account](./guide_images/building.png)
+![build](./guide_images/building.png)
 
-This repo is based off of this tutorial https://botleg.com/stories/build-and-deploy-to-openshift-with-travisci-and-wercker/
-and the digital ocean tutorial by wrecker http://blog.wercker.com/2013/09/03/ContinuousDelivery-with-wercker-digitalocean-and-nodejs.html
+the wercker.yml file is explained back in the [se-tutrial lab](https://github.com/amrdraz/se-tutorial/blob/master/lab-7.md))
 
-use it to figure out the missing information :D
+This repo is based off of these tutorials
+https://botleg.com/stories/build-and-deploy-to-openshift-with-travisci-and-wercker/
+http://blog.wercker.com/2013/09/03/ContinuousDelivery-with-wercker-digitalocean-and-nodejs.html
+
+you may use it to figure out if some information is missing.
