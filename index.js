@@ -1,6 +1,6 @@
 var http = require('http');
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 80;
 var IP = process.env.IP || '0.0.0.0';
 
 function handleRequest(request, response) {
