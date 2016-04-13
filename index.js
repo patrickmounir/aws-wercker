@@ -4,7 +4,7 @@ var PORT = process.env.PORT || 80;
 var IP = process.env.IP || '0.0.0.0';
 
 function handleRequest(request, response) {
-	response.end(`This app is deployed by Draz via wercker autimatically `);
+	response.end(`This app is deployed by Draz via wercker`);
 }
 
 
