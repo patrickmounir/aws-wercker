@@ -1,10 +1,10 @@
 var http = require('http');
 
-var PORT = process.env.PORT || 80;
+var PORT = process.env.PORT || 3000;
 var IP = process.env.IP || '0.0.0.0';
 
 function handleRequest(request, response) {
-	response.end(`This app is deployed by Draz via wercker autimatical`);
+	response.end(`This app is deployed by Patrick`);
 }
 
 
